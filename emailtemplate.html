@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pain Management Case Sheet Submission</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f9f9f9;
+        padding: 20px;
+      }
+      .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .section {
+        margin-bottom: 20px;
+      }
+      .section h3 {
+        margin-bottom: 10px;
+        color: #007bff;
+      }
+      .section p {
+        margin: 5px 0;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 0.9em;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2>Pain Management Case Sheet Submission</h2>
+      </div>
+
+      <div class="section">
+        <h3>Personal Details</h3>
+        <p><strong>Gender:</strong> {{gender}}</p>
+        <p><strong>Pain Location:</strong> {{pain_location}}</p>
+        <p><strong>Pain Side:</strong> {{pain_side}}</p>
+        <p><strong>Pain Time:</strong> {{pain_time}}</p>
+        <p><strong>Pain Worsen Activity:</strong> {{pain_worsen_activity}}</p>
+        <p><strong>Pain Relieve Activity:</strong> {{pain_relieve_activity}}</p>
+      </div>
+
+      <div class="section">
+        <h3>Pain Details</h3>
+        <p><strong>Low Back Pain:</strong> {{lowback_pain}}</p>
+        <p><strong>Radiating Pain:</strong> {{radiating_pain}}</p>
+        <p><strong>Calf Cramps:</strong> {{calf_cramps}}</p>
+        <p><strong>Knee Clicking:</strong> {{knee_clicking}}</p>
+        <p><strong>Recent Trauma:</strong> {{recent_trauma}}</p>
+        <p><strong>Swelling:</strong> {{swelling}}</p>
+        <p><strong>Knee Temperature:</strong> {{knee_temperature}}</p>
+        <p><strong>Knee Tenderness:</strong> {{knee_tenderness}}</p>
+        <p><strong>Knee Stiffness:</strong> {{knee_stiffness}}</p>
+        <p><strong>Knee Movement:</strong> {{knee_movement}}</p>
+      </div>
+
+      <div class="section">
+        <h3>Medical History</h3>
+        <p>
+          <strong>Osteoarthritis/Rheumatoid Arthritis:</strong>
+          {{arthritis_reports}}
+        </p>
+        <p>
+          <strong>Metabolic Disorders:</strong> {{metabolic_disorder_reports}}
+        </p>
+        <p><strong>Current Medications:</strong> {{current_meds}}</p>
+        <p><strong>Family History:</strong> {{family_history}}</p>
+        <p><strong>Appetite, Bowel, Sleep:</strong> {{abs}}</p>
+        <p><strong>Work Pattern Contribution:</strong> {{work_pattern}}</p>
+        <p><strong>Past Treatments:</strong> {{past_treatment}}</p>
+      </div>
+
+      <div class="section">
+        <h3>Menstrual History</h3>
+        <p><strong>Menopause:</strong> {{menopause}}</p>
+        <p><strong>Cycle Regular:</strong> {{cycle_regular}}</p>
+        <p><strong>Pain/Cramps:</strong> {{pain_cramps}}</p>
+        <p><strong>Affect Daily Routine:</strong> {{cramps_routine}}</p>
+        <p><strong>Flow:</strong> {{flow}}</p>
+      </div>
+
+      <div class="footer">
+        <p>
+          Thank you for your submission. We will review your case and get back
+          to you soon.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
