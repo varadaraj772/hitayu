@@ -10,12 +10,12 @@ const Home = () => {
           live a well-balanced life, considering a healthy mind and spirit/soul.
         </h1>
         <div className="flex items-center">
-          <a
-            href="tel:9141074818"
+          <Link
+            to="/consultation"
             className="bg-transparent border border-gray-800 px-4 py-2 rounded-md text-gray-800 hover:bg-gray-800 hover:text-white"
           >
             BOOK AN APPOINTMENT NOW
-          </a>
+          </Link>
         </div>
       </header>
 

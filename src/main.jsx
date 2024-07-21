@@ -11,7 +11,7 @@ import CaseSheet from "./components/CaseSheet";
 import Auth from "./components/Auth";
 import Rooms from "./components/Rooms";
 import Gallery from "./components/Gallery";
-
+import Consultation from "./components/Consultation";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -45,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "CaseSheet",
         element: <CaseSheet />,
+      },
+      {
+        path: "Consultation",
+        element: <Consultation />,
       },
     ],
   },
