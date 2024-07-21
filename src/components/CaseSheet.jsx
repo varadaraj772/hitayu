@@ -1,5 +1,7 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
+import jsPDF from "jspdf";
+
 const CaseSheet = () => {
   const [formValues, setFormValues] = useState({
     gender: "",
@@ -75,8 +77,25 @@ const CaseSheet = () => {
           console.log("FAILED...", error);
         }
       );
+    generatePDF(formattedData);
   };
+  const generatePDF = (data) => {
+    const doc = new jsPDF();
+    doc.text("PAIN MANAGEMENT CASESHEET", 10, 10);
 
+    const entries = Object.entries(data);
+    let yOffset = 20;
+
+    entries.forEach(([key, value]) => {
+      doc.text(`${key}: ${value}`, 10, yOffset);
+      yOffset += 10;
+      if (yOffset > 280) {
+        doc.addPage();
+        yOffset = 20;
+      }
+    });
+    doc.save("casesheet.pdf");
+  };
   return (
     <form
       id="casesheet-form"

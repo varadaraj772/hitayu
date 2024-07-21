@@ -10,18 +10,21 @@ import {
   getDocs,
 } from "firebase/firestore";
 import "tailwindcss/tailwind.css";
-import firebaseConfig from "../cofig";
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const auth = getAuth(app);
-const doctors = ["d1", "d2", "d3"];
+import firebaseConfig from "../config";
+import { useNavigate } from "react-router-dom";
+
 const Consultation = () => {
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const auth = getAuth(app);
   const [user, setUser] = useState(null);
+  const doctors = ["d1", "d2", "d3"];
   const [selectedDoctor, setSelectedDoctor] = useState(doctors[0]);
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -40,7 +43,8 @@ const Consultation = () => {
 
   const handleBooking = async () => {
     if (!user) {
-      setError("You must be logged in to make a booking.");
+      alert("Please login");
+      navigate("/Auth");
       return;
     }
 
@@ -65,9 +69,11 @@ const Consultation = () => {
         userId: user.uid,
       });
 
-      setSuccess("Your booking is confirmed!");
+      setSuccess(
+        "Your booking is done! The confirmation will be sent to you soon"
+      );
     } catch (err) {
-      setError("Failed to book. Please try again later.");
+      setError("There seems to be some issue..Please try again");
     }
   };
 

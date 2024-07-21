@@ -8,16 +8,8 @@ import {
   GoogleAuthProvider,
 } from "firebase/auth";
 import "tailwindcss/tailwind.css";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBSQVQZ2vofQKoCk-jqanOTcNUBNLAziG0",
-  authDomain: "hitayu-52925.firebaseapp.com",
-  projectId: "hitayu-52925",
-  storageBucket: "hitayu-52925.appspot.com",
-  messagingSenderId: "843226559192",
-  appId: "1:843226559192:web:5914d266638717fe5b9dad",
-  measurementId: "G-SJ020FL8ZY",
-};
+import firebaseConfig from "../config";
+import { useNavigate } from "react-router-dom";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -28,13 +20,16 @@ const Auth = () => {
   const [password, setPassword] = useState("");
   const [isLogin, setIsLogin] = useState(true);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleAuth = async () => {
     try {
       if (isLogin) {
         await signInWithEmailAndPassword(auth, email, password);
+        navigate("/");
       } else {
         await createUserWithEmailAndPassword(auth, email, password);
+        navigate("/");
       }
     } catch (err) {
       setError(err.message);
@@ -44,6 +39,7 @@ const Auth = () => {
   const handleGoogleSignIn = async () => {
     try {
       await signInWithPopup(auth, provider);
+      navigate("/");
     } catch (err) {
       setError(err.message);
     }

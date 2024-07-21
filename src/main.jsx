@@ -12,6 +12,7 @@ import Auth from "./components/Auth";
 import Rooms from "./components/Rooms";
 import Gallery from "./components/Gallery";
 import Consultation from "./components/Consultation";
+import Admin from "./components/Admin";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: "Consultation",
         element: <Consultation />,
+      },
+      {
+        path: "admin",
+        element: <Admin />,
       },
     ],
   },

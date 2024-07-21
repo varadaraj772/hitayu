@@ -1,13 +1,40 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../assets/logo.webp";
-
+import { useEffect } from "react";
+import { initializeApp } from "firebase/app";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import firebaseConfig from "../config";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.error("Error signing out:", error);
+    }
+  };
+
   return (
     <header className="bg-gray-800 text-white py-4">
       <div className="container mx-auto flex justify-between items-center px-4 md:px-0 h-full">
@@ -75,9 +102,15 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link to="/Auth" className="hover:text-gray-300">
-                Login
-              </Link>
+              {isLoggedIn ? (
+                <button onClick={handleLogout} className="hover:text-gray-300">
+                  Logout
+                </button>
+              ) : (
+                <Link to="/Auth" className="hover:text-gray-300">
+                  Login
+                </Link>
+              )}
             </li>
           </ul>
         </nav>
