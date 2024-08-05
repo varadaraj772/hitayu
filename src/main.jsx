@@ -9,10 +9,13 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import CaseSheet from "./components/CaseSheet";
 import Auth from "./components/Auth";
-import Rooms from "./components/Rooms";
 import Gallery from "./components/Gallery";
 import Consultation from "./components/Consultation";
 import Admin from "./components/Admin";
+import Rooms from "./components/Rooms";
+import BlogList from "./components/BlogList";
+import RoomCard from "./components/RoomCard";
+import RoomsGallery from "./components/RoomsGallery";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -54,6 +57,18 @@ const router = createBrowserRouter([
       {
         path: "admin",
         element: <Admin />,
+      },
+      {
+        path: "Blog",
+        element: <BlogList />,
+      },
+      {
+        path: "Rc",
+        element: <RoomCard />,
+      },
+      {
+        path: "RGallery",
+        element: <RoomsGallery />,
       },
     ],
   },

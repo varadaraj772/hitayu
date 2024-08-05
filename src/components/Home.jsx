@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import BlogList from "./BlogList";
 const Home = () => {
   return (
     <div className="bg-gray-100 min-h-screen flex flex-col">
@@ -125,6 +126,7 @@ const Home = () => {
           </div>
         </div>
       </main>
+      <BlogList />
     </div>
   );
 };
