@@ -9,7 +9,7 @@ import {
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import firebaseConfig from "../config";
 import { initializeApp } from "firebase/app";
-import Compressor from "compressorjs";
+//import Compressor from "compressorjs";
 
 const BlogForm = ({ onFormSubmit, blog, isAdmin }) => {
   const app = initializeApp(firebaseConfig);
@@ -79,15 +79,15 @@ const BlogForm = ({ onFormSubmit, blog, isAdmin }) => {
     const file = e.target.files[0];
 
     // Compress the image using Compressor.js
-    new Compressor(file, {
-      quality: 0.7, // Adjust quality as needed
-      success(compressedFile) {
-        setImageFile(compressedFile);
-      },
-      error(err) {
-        console.error("Error compressing image:", err);
-      },
-    });
+    // new Compressor(file, {
+    //   quality: 0.7, // Adjust quality as needed
+    //   success(compressedFile) {
+    //     setImageFile(compressedFile);
+    //   },
+    //   error(err) {
+    //     console.error("Error compressing image:", err);
+    //   },
+    // });
   };
 
   return (
